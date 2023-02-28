@@ -9,10 +9,10 @@
 
 <div class="slider">
   <div class="owl-carousel">
-    <?php $arr_posts = new WP_Query( $args );
-    if ( $arr_posts->have_posts() ) :
-      while ( $arr_posts->have_posts() ) :
-        $arr_posts->the_post();
+    <?php $nonprofit_organization_arr_posts = new WP_Query( $args );
+    if ( $nonprofit_organization_arr_posts->have_posts() ) :
+      while ( $nonprofit_organization_arr_posts->have_posts() ) :
+        $nonprofit_organization_arr_posts->the_post();
         ?>
         <div class="blog_inner_box">
           <?php

@@ -30,7 +30,7 @@ define('NONPROFIT_ORGANIZATION_DEMO_PRO',__('https://www.misbahwp.com/demo/nonpr
 }
 
 function nonprofit_organization_test_guide() { ?>
-	<?php $theme = wp_get_theme(); ?>
+	<?php $nonprofit_organization_theme = wp_get_theme(); ?>
 
 	<div class="wrap" id="main-page">
 		<div id="lefty">
@@ -41,12 +41,12 @@ function nonprofit_organization_test_guide() { ?>
 				<a class="blue-button-2" href="<?php echo esc_url( NONPROFIT_ORGANIZATION_REVIEW_FREE ); ?>" target="_blank" class="btn4"><?php esc_html_e( 'Review', 'nonprofit-organization' ) ?></a>
 			</div>
 			<div id="description">
-				<h3><?php esc_html_e('Welcome! Thank you for choosing ','nonprofit-organization'); ?><?php echo esc_html( $theme ); ?>  <span><?php esc_html_e('Version: ', 'nonprofit-organization'); ?><?php echo esc_html($theme['Version']);?></span></h3>
+				<h3><?php esc_html_e('Welcome! Thank you for choosing ','nonprofit-organization'); ?><?php echo esc_html( $nonprofit_organization_theme ); ?>  <span><?php esc_html_e('Version: ', 'nonprofit-organization'); ?><?php echo esc_html($nonprofit_organization_theme['Version']);?></span></h3>
 				<img class="img_responsive" style="width:100%;" src="<?php echo esc_url( get_template_directory_uri() ); ?>/screenshot.png">
 				<div id="description-inside">
 					<?php
-						$theme = wp_get_theme();
-						echo wp_kses_post( apply_filters( 'misbah_theme_description', esc_html( $theme->get( 'Description' ) ) ) );
+						$nonprofit_organization_theme = wp_get_theme();
+						echo wp_kses_post( apply_filters( 'misbah_theme_description', esc_html( $nonprofit_organization_theme->get( 'Description' ) ) ) );
 					?>
 				</div>
 			</div>

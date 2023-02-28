@@ -1115,7 +1115,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 						}
 						unset( $plugin_slug );
 
-						$count          = count( $plugin_group );
+						$nonprofit_organization_count          = count( $plugin_group );
 						$linked_plugins = array_map( array( 'TGMPA_Utils', 'wrap_in_em' ), $linked_plugins );
 						$last_plugin    = array_pop( $linked_plugins ); // Pop off last name to prep for readability.
 						$imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'nonprofit-organization' ) . ' ' . $last_plugin );
@@ -1123,14 +1123,14 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 						$rendered .= sprintf(
 							$line_template,
 							sprintf(
-								translate_nooped_plural( $this->strings[ $type ], $count, 'nonprofit-organization' ),
+								translate_nooped_plural( $this->strings[ $type ], $nonprofit_organization_count, 'nonprofit-organization' ),
 								$imploded,
-								$count
+								$nonprofit_organization_count
 							)
 						);
 
 					}
-					unset( $type, $plugin_group, $linked_plugins, $count, $last_plugin, $imploded );
+					unset( $type, $plugin_group, $linked_plugins, $nonprofit_organization_count, $last_plugin, $imploded );
 
 					$rendered .= $this->create_user_action_links_for_notice( $install_link_count, $update_link_count, $activate_link_count, $line_template );
 				}
@@ -2377,27 +2377,27 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		public function get_views() {
 			$status_links = array();
 
-			foreach ( $this->view_totals as $type => $count ) {
-				if ( $count < 1 ) {
+			foreach ( $this->view_totals as $type => $nonprofit_organization_count ) {
+				if ( $nonprofit_organization_count < 1 ) {
 					continue;
 				}
 
 				switch ( $type ) {
 					case 'all':
 						/* translators: 1: number of plugins. */
-						$text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'nonprofit-organization' );
+						$text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $nonprofit_organization_count, 'plugins', 'nonprofit-organization' );
 						break;
 					case 'install':
 						/* translators: 1: number of plugins. */
-						$text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'nonprofit-organization' );
+						$text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $nonprofit_organization_count, 'nonprofit-organization' );
 						break;
 					case 'update':
 						/* translators: 1: number of plugins. */
-						$text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'nonprofit-organization' );
+						$text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $nonprofit_organization_count, 'nonprofit-organization' );
 						break;
 					case 'activate':
 						/* translators: 1: number of plugins. */
-						$text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'nonprofit-organization' );
+						$text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $nonprofit_organization_count, 'nonprofit-organization' );
 						break;
 					default:
 						$text = '';
@@ -2410,7 +2410,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 						'<a href="%s"%s>%s</a>',
 						esc_url( $this->tgmpa->get_tgmpa_status_url( $type ) ),
 						( $type === $this->view_context ) ? ' class="current"' : '',
-						sprintf( $text, number_format_i18n( $count ) )
+						sprintf( $text, number_format_i18n( $nonprofit_organization_count ) )
 					);
 				}
 			}
@@ -2942,14 +2942,14 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				if ( is_wp_error( $activate ) ) {
 					echo '<div id="message" class="error"><p>', wp_kses_post( $activate->get_error_message() ), '</p></div>';
 				} else {
-					$count        = count( $plugin_names ); // Count so we can use _n function.
+					$nonprofit_organization_count        = count( $plugin_names ); // Count so we can use _n function.
 					$plugin_names = array_map( array( 'TGMPA_Utils', 'wrap_in_strong' ), $plugin_names );
 					$last_plugin  = array_pop( $plugin_names ); // Pop off last name to prep for readability.
 					$imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'nonprofit-organization' ) . ' ' . $last_plugin );
 
 					printf( // WPCS: xss ok.
 						'<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
-						esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'nonprofit-organization' ) ),
+						esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $nonprofit_organization_count, 'nonprofit-organization' ) ),
 						$imploded
 					);
 

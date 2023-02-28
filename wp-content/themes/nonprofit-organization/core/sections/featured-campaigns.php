@@ -1,6 +1,6 @@
 <?php if ( get_theme_mod('nonprofit_organization_featured_campaigns_section_enable') ) : ?>
 
-<?php $left_args = array(
+<?php $nonprofit_organization_left_args = array(
   'post_type' => 'post',
   'post_status' => 'publish',
   'category_name' =>  get_theme_mod('nonprofit_organization_featured_campaigns_category'),
@@ -13,10 +13,10 @@
     		<h2 class="text-center mb-5"><?php echo esc_html(get_theme_mod('nonprofit_organization_featured_campaigns_heading'));?></h2>
     	<?php endif; ?>
 			<div class="row text-center">
-				<?php $arr_posts = new WP_Query( $left_args );
-			    if ( $arr_posts->have_posts() ) :
-			      while ( $arr_posts->have_posts() ) :
-			        $arr_posts->the_post();
+				<?php $nonprofit_organization_arr_posts = new WP_Query( $nonprofit_organization_left_args );
+			    if ( $nonprofit_organization_arr_posts->have_posts() ) :
+			      while ( $nonprofit_organization_arr_posts->have_posts() ) :
+			        $nonprofit_organization_arr_posts->the_post();
 			        ?>
 			        <div class="col-lg-4 col-md-6 col-sm-6">
 			        	<div class="featured-box">
@@ -44,7 +44,7 @@
 											$raised = esc_attr(get_post_meta($post->ID,'nonprofit_organization_raised_amount',true));
 											$raised_val = explode('$', $raised);
 											$ra = $raised_val[0];
-											$goal = esc_attr(get_post_meta($post->ID,'nonprofit_organization_goal_amount',true)); 
+											$goal = esc_attr(get_post_meta($post->ID,'nonprofit_organization_goal_amount',true));
 											$goal_val = explode('$', $goal);
 											$ga = $goal_val[0];
 											$percent = $ra/$ga*100;

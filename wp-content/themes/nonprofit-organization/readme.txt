@@ -2,9 +2,9 @@
 Contributors: misbahwp
 Tags: education, food-and-drink, e-commerce, wide-blocks, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, custom-background, custom-colors, custom-header, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, editor-style, theme-options, threaded-comments, sticky-post
 Requires at least: 5.0
-Stable tag: 1.2
+Stable tag: 1.5
 Requires PHP: 7.2
-Tested up to: 6.0
+Tested up to: 6.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,6 +32,25 @@ Nonprofit Organization is a colorful and clean theme for WordPress websites and 
 * Added additional settings.
 * Resolved bug fixes.
 
+= 1.3 = December - 05 - 2022
+
+* Updated dashicon function.
+* Added web-font licence.
+* Prefixing the variable.
+* Resolve Escaping URLs.
+* Updated PHP version.
+* Added Require atleast.
+
+= 1.4 = January - 12 - 2023
+
+* Minor Bug Fixes.
+* Added slider content alignment settings.
+
+= 1.5 = February - 10 - 2023
+
+* Changes in customizer.
+* Added woocommerce settings.
+
 == Resources ==
 
 Nonprofit Organization WordPress Theme, Copyright 2022 misbahwp
@@ -55,6 +74,10 @@ Kirki Customizer Framework v3.0.45 Copyright (c) 2019, Ari Stathopoulos (@arista
 
 navigation.js file By Automattic, Inc. - https://underscores.me/
 * navigation.js - Licensed under GPLv2 or later ( Applies to navigation.js file in /nonprofit-organization/js/ )
+
+Webfonts Loader
+* https://github.com/WPTT/webfont-loader
+* License: https://github.com/WPTT/webfont-loader/blob/master/LICENSE
 
 Screenshot images By pxhere - https://pxhere.com/
 

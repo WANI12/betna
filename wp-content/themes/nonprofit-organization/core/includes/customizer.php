@@ -43,7 +43,7 @@ if ( class_exists("Kirki")){
 		'settings'    => 'nonprofit_organization_display_header_text',
 		'label'       => esc_html__( 'Tagline Enable / Disable Button', 'nonprofit-organization' ),
 		'section'     => 'title_tagline',
-		'default'     => '1',
+		'default'     => false,
 		'priority'    => 10,
 		'choices'     => [
 			'on'  => esc_html__( 'Enable', 'nonprofit-organization' ),
@@ -125,7 +125,7 @@ if ( class_exists("Kirki")){
 
 	// Scroll Top
 
-	Kirki::add_section( 'nonprofit_organization_section_scroll', array(
+	Kirki::add_section( 'nonprofit_organization_Additional_settings', array(
 	    'title'          => esc_html__( 'Additional Settings', 'nonprofit-organization' ),
 	    'description'    => esc_html__( 'Scroll To Top', 'nonprofit-organization' ),
 	    'panel'          => 'nonprofit_organization_panel_id',
@@ -136,7 +136,7 @@ if ( class_exists("Kirki")){
 		'type'        => 'toggle',
 		'settings'    => 'nonprofit_organization_scroll_enable_setting',
 		'label'       => esc_html__( 'Here you can enable or disable your scroller.', 'nonprofit-organization' ),
-		'section'     => 'nonprofit_organization_section_scroll',
+		'section'     => 'nonprofit_organization_Additional_settings',
 		'default'     => '0',
 		'priority'    => 10,
 	] );
@@ -145,7 +145,7 @@ if ( class_exists("Kirki")){
 	[
 		'settings'    => 'menu_text_transform_nonprofit_organization',
 		'label'       => esc_html__( 'Menus Text Transform', 'nonprofit-organization' ),
-		'section'     => 'nonprofit_organization_section_scroll',
+		'section'     => 'nonprofit_organization_Additional_settings',
 		'default'     => 'UPPERCASE',
 		'placeholder' => esc_html__( 'Choose an option', 'nonprofit-organization' ),
 		'choices'     => [
@@ -160,7 +160,7 @@ if ( class_exists("Kirki")){
 		'type'        => 'slider',
 		'settings'    => 'nonprofit_organization_container_width',
 		'label'       => esc_html__( 'Theme Container Width', 'nonprofit-organization' ),
-		'section'     => 'nonprofit_organization_section_scroll',
+		'section'     => 'nonprofit_organization_Additional_settings',
 		'default'     => 100,
 		'choices'     => [
 			'min'  => 50,
@@ -168,6 +168,34 @@ if ( class_exists("Kirki")){
 			'step' => 1,
 		],
 	] );
+
+	// Woocommerce Settings
+
+	Kirki::add_section( 'nonprofit_organization_woocommerce_settings', array(
+			'title'          => esc_html__( 'Woocommerce Settings', 'nonprofit-organization' ),
+			'description'    => esc_html__( 'Shop Page', 'nonprofit-organization' ),
+			'panel'          => 'nonprofit_organization_panel_id',
+			'priority'       => 160,
+	) );
+
+	Kirki::add_field( 'theme_config_id', [
+		'type'        => 'toggle',
+		'settings'    => 'nonprofit_organization_shop_sidebar',
+		'label'       => esc_html__( 'Here you can enable or disable shop page sidebar.', 'nonprofit-organization' ),
+		'section'     => 'nonprofit_organization_woocommerce_settings',
+		'default'     => '1',
+		'priority'    => 10,
+	] );
+
+	Kirki::add_field( 'theme_config_id', [
+		'type'        => 'toggle',
+		'settings'    => 'nonprofit_organization_product_sidebar',
+		'label'       => esc_html__( 'Here you can enable or disable product page sidebar.', 'nonprofit-organization' ),
+		'section'     => 'nonprofit_organization_woocommerce_settings',
+		'default'     => '1',
+		'priority'    => 10,
+	] );
+
 
 	// POST SECTION
 
@@ -414,6 +442,21 @@ if ( class_exists("Kirki")){
 		'settings' => 'nonprofit_organization_extra_text',
 		'section'  => 'nonprofit_organization_blog_slide_section',
 		'default'  => '',
+	] );
+
+	new \Kirki\Field\Select(
+	[
+		'settings'    => 'nonprofit_organization_slider_content_alignment',
+		'label'       => esc_html__( 'Slider Content Alignment', 'nonprofit-organization' ),
+		'section'     => 'nonprofit_organization_blog_slide_section',
+		'default'     => 'LEFT-ALIGN',
+		'placeholder' => esc_html__( 'Choose an option', 'nonprofit-organization' ),
+		'choices'     => [
+			'LEFT-ALIGN' => esc_html__( 'LEFT-ALIGN', 'nonprofit-organization' ),
+			'CENTER-ALIGN' => esc_html__( 'CENTER-ALIGN', 'nonprofit-organization' ),
+			'RIGHT-ALIGN' => esc_html__( 'RIGHT-ALIGN', 'nonprofit-organization' ),
+
+		],
 	] );
 
 	// FEATURED CAMPAIGNS SECTION

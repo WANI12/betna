@@ -10,8 +10,8 @@ if ( post_password_required() ) {
     if ( have_comments() ) : ?>
         <h2 class="comments-title">
             <?php
-            $comments_number = get_comments_number();
-            if ( '1' === $comments_number ) {
+            $nonprofit_organization_comments_number = get_comments_number();
+            if ( '1' === $nonprofit_organization_comments_number ) {
                 /* translators: %s: post title */
                 printf( esc_html__( 'One thought on &ldquo;%s&rdquo;', 'nonprofit-organization' ), esc_html( get_the_title() ) );
             } else {
@@ -21,12 +21,12 @@ if ( post_password_required() ) {
                         _nx(
                             '%1$s thought on &ldquo;%2$s&rdquo;',
                             '%1$s thoughts on &ldquo;%2$s&rdquo;',
-                            $comments_number,
+                            $nonprofit_organization_comments_number,
                             'comments title',
                             'nonprofit-organization'
                         )
                     ),
-                    esc_html( number_format_i18n( $comments_number ) ),
+                    esc_html( number_format_i18n( $nonprofit_organization_comments_number ) ),
                     esc_html( get_the_title() )
                 );
             }

@@ -38,7 +38,7 @@
 					      		echo '</a>';
 					      	endif;
 
-					      	if ( get_theme_mod('nonprofit_organization_display_header_text', true) == true ) :
+					      	if ( get_theme_mod('nonprofit_organization_display_header_text', false) == true ) :
 				      			echo '<span>'. esc_attr(get_bloginfo('description')) . '</span>';
 				      		endif;
 			    		?>

@@ -1,73 +1,102 @@
 {
-  "name": "kirki-framework/kirki",
-  "type": "library",
-  "version": "4.0.24",
-  "keywords": ["WordPress", "Customizer"],
-  "description": "Extending the WordPress customizer",
-  "homepage": "https://kirki.org",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Kirki Framework",
-      "email": "connect@mapsteps.com"
+    "name": "kirki-framework/kirki",
+    "type": "library",
+    "version": "4.1.1",
+    "keywords": [
+        "WordPress",
+        "Customizer"
+    ],
+    "description": "Extending the WordPress customizer",
+    "homepage": "https://kirki.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kirki Framework",
+            "email": "connect@mapsteps.com"
+        }
+    ],
+    "config": {
+        "vendor-dir": "kirki-composer",
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
+        }
+    },
+    "include-path": [
+        ".",
+        "core"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kirki\\Compatibility\\": [
+                "kirki-packages/compatibility/src"
+            ],
+            "Kirki\\Data\\": [
+                "kirki-packages/data-option/src"
+            ],
+            "Kirki\\Field\\": [
+                "kirki-packages/field/src/Field",
+                "kirki-packages/field-background/src",
+                "kirki-packages/field-dimensions/src",
+                "kirki-packages/field-fontawesome/src",
+                "kirki-packages/field-multicolor/src/Field",
+                "kirki-packages/field-multicolor/src",
+                "kirki-packages/field-typography/src/Field",
+                "kirki-packages/field-typography/src"
+            ],
+            "Kirki\\Module\\": [
+                "kirki-packages/module-css/src",
+                "kirki-packages/module-editor-styles/src",
+                "kirki-packages/module-field-dependencies/src",
+                "kirki-packages/module-postmessage/src",
+                "kirki-packages/module-preset/src",
+                "kirki-packages/module-section-icons/src",
+                "kirki-packages/module-selective-refresh/src",
+                "kirki-packages/module-tooltips/src",
+                "kirki-packages/module-webfonts/src"
+            ],
+            "Kirki\\Util\\": [
+                "kirki-packages/util/src"
+            ],
+            "Kirki\\Settings\\": [
+                "kirki-packages/settings/src"
+            ],
+            "Kirki\\": [
+                "kirki-packages/control-base/src",
+                "kirki-packages/control-checkbox/src",
+                "kirki-packages/control-code/src",
+                "kirki-packages/control-color/src",
+                "kirki-packages/control-color-palette/src",
+                "kirki-packages/control-cropped-image/src",
+                "kirki-packages/control-custom/src",
+                "kirki-packages/control-dashicons/src",
+                "kirki-packages/control-date/src",
+                "kirki-packages/control-dimension/src",
+                "kirki-packages/control-editor/src",
+                "kirki-packages/control-generic/src",
+                "kirki-packages/control-image/src",
+                "kirki-packages/control-multicheck/src",
+                "kirki-packages/control-palette/src",
+                "kirki-packages/control-radio/src",
+                "kirki-packages/control-react-colorful/src",
+                "kirki-packages/control-react-select/src",
+                "kirki-packages/control-repeater/src",
+                "kirki-packages/control-select/src",
+                "kirki-packages/control-slider/src",
+                "kirki-packages/control-sortable/src",
+                "kirki-packages/control-upload/src",
+                "kirki-packages/field/src",
+                "kirki-packages/googlefonts/src",
+                "kirki-packages/l10n/src",
+                "kirki-packages/module-panels/src",
+                "kirki-packages/module-sections/src",
+                "kirki-packages/url-getter/src"
+            ]
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
     }
-  ],
-  "config": {
-    "vendor-dir": "packages",
-    "allow-plugins": {
-      "composer/installers": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true
-    }
-  },
-  "include-path": [".", "core"],
-  "require": {
-    "php": ">=7.0",
-    "kirki-framework/util": "*",
-    "kirki-framework/l10n": "*",
-    "kirki-framework/field": "*",
-    "kirki-framework/url-getter": "*",
-    "kirki-framework/control-base": "*",
-    "kirki-framework/control-checkbox": "*",
-    "kirki-framework/control-code": "*",
-    "kirki-framework/control-cropped-image": "*",
-    "kirki-framework/control-custom": "*",
-    "kirki-framework/control-dashicons": "*",
-    "kirki-framework/control-date": "*",
-    "kirki-framework/control-dimension": "*",
-    "kirki-framework/control-editor": "*",
-    "kirki-framework/control-generic": "*",
-    "kirki-framework/control-image": "*",
-    "kirki-framework/control-multicheck": "*",
-    "kirki-framework/control-palette": "*",
-    "kirki-framework/control-radio": "*",
-    "kirki-framework/control-repeater": "*",
-    "kirki-framework/control-select": "*",
-    "kirki-framework/control-react-select": "*",
-    "kirki-framework/control-slider": "*",
-    "kirki-framework/control-sortable": "*",
-    "kirki-framework/control-upload": "*",
-    "kirki-framework/field-dimensions": "*",
-    "kirki-framework/field-fontawesome": "*",
-    "kirki-framework/field-typography": "*",
-    "kirki-framework/module-css": "*",
-    "kirki-framework/module-editor-styles": "*",
-    "kirki-framework/module-field-dependencies": "*",
-    "kirki-framework/module-postmessage": "*",
-    "kirki-framework/module-preset": "*",
-    "kirki-framework/module-selective-refresh": "*",
-    "kirki-framework/module-tooltips": "*",
-    "kirki-framework/module-webfonts": "*",
-    "kirki-framework/compatibility": "*",
-    "kirki-framework/data-option": "*",
-    "kirki-framework/module-panels": "*",
-    "kirki-framework/module-sections": "*",
-    "kirki-framework/module-section-icons": "*",
-    "kirki-framework/control-react-colorful": "*",
-    "kirki-framework/control-color": "*",
-    "kirki-framework/control-color-palette": "*",
-    "kirki-framework/field-background": "*",
-    "kirki-framework/field-multicolor": "*"
-  },
-  "require-dev": {
-  }
 }

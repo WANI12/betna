@@ -23,19 +23,19 @@ if (!function_exists('nonprofit_organization_enqueue_scripts')) {
 
 		wp_enqueue_style(
 			'bootstrap-css',
-			esc_url( get_template_directory_uri() ) . '/css/bootstrap.css',
+			get_template_directory_uri() . '/css/bootstrap.css',
 			array(),'4.5.0'
 		);
 
 		wp_enqueue_style(
 			'fontawesome-css',
-			esc_url( get_template_directory_uri() ) . '/css/fontawesome-all.css',
+			get_template_directory_uri() . '/css/fontawesome-all.css',
 			array(),'4.5.0'
 		);
 
 		wp_enqueue_style(
 			'owl.carousel-css',
-			esc_url( get_template_directory_uri() ) . '/css/owl.carousel.css',
+			get_template_directory_uri() . '/css/owl.carousel.css',
 			array(),'2.3.4'
 		);
 
@@ -43,13 +43,19 @@ if (!function_exists('nonprofit_organization_enqueue_scripts')) {
 
 		wp_enqueue_style(
 			'nonprofit-organization-media-css',
-			esc_url( get_template_directory_uri() ) . '/css/media.css',
+			get_template_directory_uri() . '/css/media.css',
 			array(),'2.3.4'
 		);
 
 		wp_enqueue_style(
 			'nonprofit-organization-woocommerce-css',
-			esc_url( get_template_directory_uri() ) . '/css/woocommerce.css',
+			get_template_directory_uri() . '/css/woocommerce.css',
+			array(),'2.3.4'
+		);
+
+		wp_enqueue_style(
+			'dashicons',
+			get_template_directory_uri(),
 			array(),'2.3.4'
 		);
 
@@ -63,7 +69,7 @@ if (!function_exists('nonprofit_organization_enqueue_scripts')) {
 
 		wp_enqueue_script(
 			'owl.carousel-js',
-			esc_url( get_template_directory_uri() ) . '/js/owl.carousel.js',
+			get_template_directory_uri() . '/js/owl.carousel.js',
 			array('jquery'),
 			'2.3.4',
 			TRUE
@@ -71,7 +77,7 @@ if (!function_exists('nonprofit_organization_enqueue_scripts')) {
 
 		wp_enqueue_script(
 			'nonprofit-organization-script',
-			esc_url( get_template_directory_uri() ) . '/js/script.js',
+			get_template_directory_uri() . '/js/script.js',
 			array('jquery'),
 			'1.0',
 			TRUE
@@ -79,11 +85,11 @@ if (!function_exists('nonprofit_organization_enqueue_scripts')) {
 
 		if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 
-		$css = '';
+		$nonprofit_organization_css = '';
 
 		if ( get_header_image() ) :
 
-			$css .=  '
+			$nonprofit_organization_css .=  '
 				.top-header{
 					background-image: url('.esc_url(get_header_image()).');
 					-webkit-background-size: cover !important;
@@ -94,9 +100,9 @@ if (!function_exists('nonprofit_organization_enqueue_scripts')) {
 
 		endif;
 
-		wp_add_inline_style( 'nonprofit-organization-style', $css );
+		wp_add_inline_style( 'nonprofit-organization-style', $nonprofit_organization_css );
 
-		// Theme Customize CSS.
+	// Theme Customize CSS.
 	require get_template_directory(). '/core/includes/inline.php';
 	wp_add_inline_style( 'nonprofit-organization-style',$nonprofit_organization_custom_css );
 
@@ -113,7 +119,7 @@ if (!function_exists('nonprofit_organization_after_setup_theme')) {
 
 	function nonprofit_organization_after_setup_theme() {
 
-		if ( ! isset( $content_width ) ) $content_width = 900;
+		if ( ! isset( $nonprofit_organization_content_width ) ) $nonprofit_organization_content_width = 900;
 
 		register_nav_menus( array(
 			'main-menu' => esc_html__( 'Main menu', 'nonprofit-organization' ),
@@ -166,16 +172,16 @@ require get_template_directory() .'/core/includes/meta-data.php';
 /*-----------------------------------------------------------------------------------*/
 function nonprofit_organization_logo_resizer() {
 
-    $theme_logo_size_css = '';
+    $nonprofit_organization_theme_logo_size_css = '';
     $nonprofit_organization_logo_resizer = get_theme_mod('nonprofit_organization_logo_resizer');
 
-	$theme_logo_size_css = '
+	$nonprofit_organization_theme_logo_size_css = '
 		.custom-logo{
 			height: '.esc_attr($nonprofit_organization_logo_resizer).'px !important;
 			width: '.esc_attr($nonprofit_organization_logo_resizer).'px !important;
 		}
 	';
-    wp_add_inline_style( 'nonprofit-organization-style',$theme_logo_size_css );
+    wp_add_inline_style( 'nonprofit-organization-style',$nonprofit_organization_theme_logo_size_css );
 
 }
 add_action( 'wp_enqueue_scripts', 'nonprofit_organization_logo_resizer' );
@@ -284,14 +290,14 @@ if (!function_exists('nonprofit_organization_widgets_init')) {
 }
 
 function nonprofit_organization_get_categories_select() {
-	$teh_cats = get_categories();
+	$nonprofit_organization_teh_cats = get_categories();
 	$results = array();
-	$count = count($teh_cats);
-	for ($i=0; $i < $count; $i++) {
-	if (isset($teh_cats[$i]))
-  		$results[$teh_cats[$i]->slug] = $teh_cats[$i]->name;
+	$nonprofit_organization_count = count($nonprofit_organization_teh_cats);
+	for ($i=0; $i < $nonprofit_organization_count; $i++) {
+	if (isset($nonprofit_organization_teh_cats[$i]))
+  		$results[$nonprofit_organization_teh_cats[$i]->slug] = $nonprofit_organization_teh_cats[$i]->name;
 	else
-  		$count++;
+  		$nonprofit_organization_count++;
 	}
 	return $results;
 }
@@ -308,11 +314,6 @@ if (!function_exists('nonprofit_organization_loop_columns')) {
 	function nonprofit_organization_loop_columns() {
 		return 3; // 3 products per row
 	}
-}
-
-add_action( 'wp_enqueue_scripts', 'nonprofit_organization_load_dashicons_front_end' );
-function nonprofit_organization_load_dashicons_front_end() {
-	wp_enqueue_style( 'dashicons' );
 }
 
 //redirect
