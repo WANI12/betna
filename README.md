@@ -2,4 +2,5 @@
 # betna
 crowd sourcing web- base application for incident reporting in south sudan
 Working with data collection for easy source of information and better working with service providers
-coming more 
+coming more
+It always comes back to a community of people to create a change and makes it count in all ways
