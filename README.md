@@ -5,3 +5,5 @@ Working with data collection for easy source of information and better working w
 coming more
 It always comes back to a community of people to create a change and makes it count in all ways
 It was built for the communities of South Sudan by the South Sudanese.
+Built to enhance the community preparedness towards change and incidents.
+Early Warning system for all.
