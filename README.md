@@ -8,3 +8,4 @@ It was built for the communities of South Sudan by the South Sudanese.
 Built to enhance the community's preparedness towards change and incidents.
 Early Warning system for all.
 # building solution for the community
+# solution out come
