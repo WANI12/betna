@@ -9,3 +9,9 @@ Built to enhance the community's preparedness towards change and incidents.
 Early Warning system for all.
 # building solution for the community
 # solution out come
+# programming languages 
+- PHP
+- JaveScript
+- WordPress
+- Html
+- CSS
