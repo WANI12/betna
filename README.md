@@ -15,4 +15,3 @@ Early Warning system for all.
 - WordPress
 - Html
 - CSS
-documentation works starts here.
