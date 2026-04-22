@@ -16,3 +16,5 @@ Early Warning system for all.
 - Html
 - CSS
 Working for the community
+
+Building for the community
